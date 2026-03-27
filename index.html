@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FilmHub</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="logo">
+        <h2>&#127916; FILMHUB</h2>
+      </div>
+      <div class="auth-buttons">
+        <button id="nav-login" class="btn-login">Login</button>
+        <button id="nav-register" class="btn-register">Register</button>
+      </div>
+      <div class="user-section" id="user-section">
+        <div id="user-info"></div>
+        <a href="#" id="nav-upload" class="menu-item" onclick="showUpload()"><span class="icon">&#128228;</span> Upload</a>
+        <a href="#" id="nav-my-videos" class="menu-item" onclick="showMyVideos()"><span class="icon">&#127909;</span> My Videos</a>
+        <a href="#" id="nav-subscribe" class="menu-item" onclick="showSubscribe()"><span class="icon">&#128179;</span> Subscribe</a>
+        <a href="#" id="nav-invite" class="menu-item" onclick="showInvite()"><span class="icon">&#128279;</span> Invite Friends</a>
+        <a href="#" id="nav-points" class="menu-item" onclick="showPoints()"><span class="icon">&#128176;</span> Points</a>
+        <a href="#" id="nav-admin" class="menu-item" onclick="showAdmin()"><span class="icon">&#9881;</span> Admin</a>
+        <button id="nav-logout" class="btn-logout" onclick="clearToken(); updateNav(); showHome()">Logout</button>
+      </div>
+    </nav>
+
+    <div class="content-area">
+      <header class="top-bar">
+        <div class="top-group">
+          <button id="nav-home" class="top-link active" type="button">Home</button>
+          <button id="nav-discovery" class="top-link" type="button">Search</button>
+        </div>
+        <div class="top-group">
+          <span class="top-label">Categories</span>
+          <button id="nav-drama" class="top-link" type="button">Drama</button>
+          <button id="nav-educative" class="top-link" type="button">Educative</button>
+          <button id="nav-comedies" class="top-link" type="button">Comedies</button>
+          <button id="nav-dancing" class="top-link" type="button">Dancing Videos</button>
+          <button id="nav-music" class="top-link" type="button">Music Videos</button>
+        </div>
+      </header>
+      <!-- Main Content -->
+      <main id="main-content" class="main-content">
+        <!-- content injected by JS -->
+      </main>
+    </div>
+    <div class="footer-bar">
+      <div class="footer-links">
+        <a href="/faq" id="nav-faq">FAQ</a>
+        <a href="/terms" id="nav-terms">Terms of service</a>
+        <a href="/contact" id="nav-contact">Contact Us</a>
+      </div>
+      <div class="footer-social">
+        <span>Connect</span>
+        <a href="https://facebook.com/Immanuel%20jnr" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.69V11.01h3.131V8.309c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.696h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/></svg>
+        </a>
+        <a href="https://instagram.com/Immanuel%20Chibalaka" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.345 3.608 1.32.975.975 1.258 2.242 1.32 3.608.058 1.266.07 1.646.07 4.84 0 3.204-.012 3.584-.07 4.85-.062 1.366-.345 2.633-1.32 3.608-.975.975-2.242 1.258-3.608 1.32-1.266.058-1.646.07-4.85.07-3.194 0-3.574-.012-4.84-.07-1.366-.062-2.633-.345-3.608-1.32-.975-.975-1.258-2.242-1.32-3.608-.058-1.266-.07-1.646-.07-4.85 0-3.194.012-3.574.07-4.84.062-1.366.345-2.633 1.32-3.608.975-.975 2.242-1.258 3.608-1.32 1.266-.058 1.646-.07 4.84-.07M12 0C8.741 0 8.332.013 7.052.072 5.773.131 4.674.364 3.75 1.289 2.825 2.214 2.592 3.313 2.533 4.592.474 5.872.461 6.281.461 9.54v4.92c0 3.259.013 3.668.072 4.948.059 1.279.292 2.378 1.217 3.303.924.925 2.023 1.158 3.302 1.217 1.28.059 1.689.072 4.948.072h4.92c3.259 0 3.668-.013 4.948-.072 1.279-.059 2.378-.292 3.303-1.217.925-.924 1.158-2.023 1.217-3.302.059-1.28.072-1.689.072-4.948v-4.92c0-3.259-.013-3.668-.072-4.948-.059-1.279-.292-2.378-1.217-3.303-.924-.925-2.023-1.158-3.302-1.217C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"/></svg>
+        </a>
+        <a href="https://wa.me/0996295313" class="social-btn" aria-label="WhatsApp 0996295313" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0012.06 0C5.46 0 .12 5.34.12 11.94c0 2.1.54 4.14 1.56 5.94L0 24l6.3-1.62a12 12 0 005.76 1.5h.06c6.6 0 11.94-5.34 11.94-11.94 0-3.18-1.26-6.18-3.54-8.46zM12.12 21.9a9.9 9.9 0 01-5.04-1.38l-.36-.18-3.72.96.99-3.63-.21-.39a9.78 9.78 0 01-1.44-5.1c0-5.4 4.41-9.81 9.84-9.81 2.64 0 5.13 1.02 7.02 2.91a9.87 9.87 0 012.88 7.02c0 5.43-4.41 9.84-9.96 9.84zm5.67-7.38c-.3-.15-1.77-.87-2.04-.96-.27-.09-.48-.15-.69.15-.21.3-.78.96-.96 1.17-.18.21-.36.24-.66.09-.3-.15-1.26-.46-2.4-1.47-.9-.78-1.5-1.74-1.68-2.04-.18-.3-.02-.46.13-.61.13-.13.3-.36.45-.54.15-.18.21-.3.33-.51.12-.21.06-.39-.03-.54-.09-.15-.69-1.65-.96-2.25-.27-.63-.54-.54-.75-.54-.18 0-.39-.03-.6-.03-.21 0-.54.09-.84.39-.3.3-1.11 1.08-1.11 2.64s1.14 3.06 1.29 3.27c.15.21 2.22 3.39 5.37 4.74.75.33 1.32.54 1.77.69.75.24 1.44.21 1.98.12.6-.09 1.77-.72 2.01-1.41.24-.69.24-1.29.18-1.41-.06-.12-.27-.18-.57-.33z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
+
