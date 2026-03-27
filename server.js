@@ -49,8 +49,13 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads"), {
   }
 }));
 
-// serve frontend static files first
-const frontendPath = path.join(__dirname, "..", "Frontend");
+// serve frontend static files first (support both monorepo and flattened uploads)
+const frontendCandidates = [
+  path.join(__dirname, "..", "Frontend"),
+  path.join(__dirname, "Frontend"),
+  path.join(process.cwd(), "Frontend")
+];
+const frontendPath = frontendCandidates.find(p => fs.existsSync(p)) || frontendCandidates[0];
 console.log("Serving static files from", frontendPath);
 app.use(express.static(frontendPath));
 
